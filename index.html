@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StreamFlix - Películas y Series</title>
+  
+  <!-- Estilos CSS -->
+  <link rel="stylesheet" href="styles.css">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- NAVEGACIÓN PRINCIPAL -->
+  <header class="navbar" id="navbar">
+    <div class="nav-left">
+      <div class="brand-logo">STREAMFLIX</div>
+      <nav class="nav-links">
+        <a href="#" class="active">Inicio</a>
+        <a href="#">Series</a>
+        <a href="#">Películas</a>
+        <a href="#">Novedades populares</a>
+        <a href="#">Mi lista</a>
+      </nav>
+    </div>
+    
+    <div class="nav-right">
+      <div class="search-box">
+        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+        <input type="text" id="searchInput" placeholder="Buscar títulos, géneros...">
+      </div>
+      <div class="icon-btn" title="Notificaciones">
+        <i class="fa-regular fa-bell"></i>
+      </div>
+      <div class="profile-menu">
+        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=100" alt="Avatar de usuario">
+        <i class="fa-solid fa-caret-down"></i>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION / BANNER DESTACADO -->
+  <section class="hero">
+    <div class="hero-bg">
+      <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=1600" alt="Banner Destacado">
+      <div class="hero-overlay"></div>
+    </div>
+
+    <div class="hero-content">
+      <span class="badge-n">ORIGINAL DE STREAMFLIX</span>
+      <h1 class="hero-title">THE ECHELON PROTOCOL</h1>
+      
+      <div class="hero-meta">
+        <span class="match">98% de coincidencia</span>
+        <span class="age">16+</span>
+        <span>2h 14m</span>
+        <span class="quality">4K Ultra HD</span>
+      </div>
+
+      <p class="hero-description">
+        Un equipo clandestino descubre una conspiración cibernética intercontinental que amenaza la infraestructura de comunicación de la humanidad.
+      </p>
+
+      <div class="hero-buttons">
+        <button class="btn btn-primary" onclick="openModal('The Echelon Protocol', 'Acción, Sci-Fi', '2024', '16+', '2h 14m', 'Un equipo clandestino descubre una conspiración cibernética intercontinental que amenaza la infraestructura de comunicación de la humanidad.', 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=800')">
+          <i class="fa-solid fa-play"></i> Reproducir
+        </button>
+        <button class="btn btn-secondary" onclick="openModal('The Echelon Protocol', 'Acción, Sci-Fi', '2024', '16+', '2h 14m', 'Un equipo clandestino descubre una conspiración cibernética intercontinental que amenaza la infraestructura de comunicación de la humanidad.', 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=800')">
+          <i class="fa-solid fa-circle-info"></i> Más información
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIONES DE CONTENIDO / FILAS -->
+  <main class="content-container">
+    
+    <!-- Fila 1: Tendencias -->
+    <section class="row">
+      <h2 class="row-title">Tendencias ahora</h2>
+      <div class="row-wrapper">
+        <button class="scroll-btn scroll-left"><i class="fa-solid fa-chevron-left"></i></button>
+        <div class="media-carousel" id="carousel-tendencias">
+          <!-- Tarjetas cargadas vía JavaScript o HTML -->
+        </div>
+        <button class="scroll-btn scroll-right"><i class="fa-solid fa-chevron-right"></i></button>
+      </div>
+    </section>
+
+    <!-- Fila 2: Populares -->
+    <section class="row">
+      <h2 class="row-title">Populares en StreamFlix</h2>
+      <div class="row-wrapper">
+        <button class="scroll-btn scroll-left"><i class="fa-solid fa-chevron-left"></i></button>
+        <div class="media-carousel" id="carousel-populares"></div>
+        <button class="scroll-btn scroll-right"><i class="fa-solid fa-chevron-right"></i></button>
+      </div>
+    </section>
+
+    <!-- Fila 3: Ciencia Ficción y Acción -->
+    <section class="row">
+      <h2 class="row-title">Ciencia Ficción y Acción</h2>
+      <div class="row-wrapper">
+        <button class="scroll-btn scroll-left"><i class="fa-solid fa-chevron-left"></i></button>
+        <div class="media-carousel" id="carousel-scifi"></div>
+        <button class="scroll-btn scroll-right"><i class="fa-solid fa-chevron-right"></i></button>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- MODAL DE DETALLES -->
+  <div class="modal-overlay" id="mediaModal">
+    <div class="modal-card">
+      <button class="modal-close" id="closeModal">&times;</button>
+      <div class="modal-banner">
+        <img id="modalImg" src="" alt="Vista previa">
+        <div class="modal-banner-overlay"></div>
+        <div class="modal-banner-actions">
+          <h2 id="modalTitle">Título</h2>
+          <div class="modal-btns">
+            <button class="btn btn-primary"><i class="fa-solid fa-play"></i> Reproducir</button>
+            <button class="btn-icon"><i class="fa-solid fa-plus"></i></button>
+            <button class="btn-icon"><i class="fa-regular fa-thumbs-up"></i></button>
+          </div>
+        </div>
+      </div>
+      <div class="modal-body">
+        <div class="modal-info">
+          <div class="modal-meta">
+            <span class="match" id="modalMatch">95% de coincidencia</span>
+            <span class="year" id="modalYear">2024</span>
+            <span class="age" id="modalAge">16+</span>
+            <span id="modalDuration">1h 45m</span>
+          </div>
+          <p id="modalDescription" class="modal-desc">Descripción...</p>
+        </div>
+        <div class="modal-side">
+          <p><strong>Género:</strong> <span id="modalGenre">Acción</span></p>
+          <p><strong>Elenco:</strong> <span id="modalCast">Actor 1, Actor 2</span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Script JS -->
+  <script src="script.js"></script>
+</body>
+</html>
